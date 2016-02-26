@@ -313,6 +313,7 @@ The options can appear anywhere in any order:\n\n\
 	    }
 	    printf(" %12.4e %s",dist,optline);
 	  }
+	  kd_res_free(res);
 	}
 	if (distance>0) {
 	  res=kd_nearest_rangef(kd,irpos,distance);
@@ -337,6 +338,7 @@ The options can appear anywhere in any order:\n\n\
 	      kd_res_next( res );
 	    }
 	  }
+	  kd_res_free(res);
 	}
       }
     }
@@ -359,6 +361,7 @@ The options can appear anywhere in any order:\n\n\
 	kd_res_next( res );
       }
     }
+    kd_res_free(res);
   }
 
   kd_free(kd);
