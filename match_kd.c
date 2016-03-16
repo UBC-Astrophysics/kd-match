@@ -304,7 +304,11 @@ The options can appear anywhere in any order:\n\n\
 	  res=kd_nearestf(kd,irpos);
 	  if (kd_res_size(res)>0) {
 	    optline = (char *) kd_res_itemf( res, pos );
-	    dist = hypot(pos[0]-irpos[0],pos[1]-irpos[1]);
+	    if (dosphere) {
+	      dist = hypot(hypot(pos[0]-irpos[0],pos[1]-irpos[1]),pos[2]-irpos[2]);
+	    } else {
+	      dist = hypot(pos[0]-irpos[0],pos[1]-irpos[1]);
+	    }
 	    if (dotransform1) {
 	      printf(" %8.4f %8.4f",irpos[0],irpos[1]);
 	    }
