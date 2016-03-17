@@ -194,9 +194,9 @@ The options can appear anywhere in any order:\n\n\
 
   /* create the kd-tree for the star positions */
   if (dosphere) {
-    kd = kd_create(2);
-  } else {
     kd = kd_create(3);
+  } else {
+    kd = kd_create(2);
   }
   /* designate a function to deallocate the data */
   kd_data_destructor(kd,free);
@@ -305,9 +305,9 @@ The options can appear anywhere in any order:\n\n\
 	  if (kd_res_size(res)>0) {
 	    optline = (char *) kd_res_itemf( res, pos );
 	    if (dosphere) {
-	      dist = hypot(hypot(pos[0]-irpos[0],pos[1]-irpos[1]),pos[2]-irpos[2]);
+	      dist = hypotf(hypotf(pos[0]-irpos[0],pos[1]-irpos[1]),pos[2]-irpos[2]);
 	    } else {
-	      dist = hypot(pos[0]-irpos[0],pos[1]-irpos[1]);
+	      dist = hypotf(pos[0]-irpos[0],pos[1]-irpos[1]);
 	    }
 	    if (dotransform1) {
 	      printf(" %8.4f %8.4f",irpos[0],irpos[1]);
