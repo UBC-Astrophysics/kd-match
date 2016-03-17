@@ -45,7 +45,7 @@ loadfile_fileptr_fs(FILE *in, unsigned int ncolumns, unsigned int columns[], dou
 
   for (j=0;j<ncolumns;j++) {
     if ((data[j]=(double *) malloc(sizeof(double)*512))==NULL) {
-      printf("Unable to allocate data[%d] in __FILE__:__LINENO__\n",j);
+      printf("Unable to allocate data[%d] in %s:%d\n",j,__FILE__,__LINE__);
       return 0;
     }
   }
@@ -75,7 +75,7 @@ loadfile_fileptr_fs(FILE *in, unsigned int ncolumns, unsigned int columns[], dou
 	if (i==ialloc) {
 	  for (j=0;j<ncolumns;j++) {
 	    if ((data[j]=(double *) realloc((void *) data[j],sizeof(double)*(i+512)))==NULL) {
-	      printf("Unable to reallocate data[%d] in __FILE__:__LINENO__\n",j);
+	      printf("Unable to reallocate data[%d] in %s:%d\n",j,__FILE__,__LINE__);
 	      return 0;
 	    }
 	  }
@@ -87,7 +87,7 @@ loadfile_fileptr_fs(FILE *in, unsigned int ncolumns, unsigned int columns[], dou
   /* free excess memory */
   for (j=0;j<ncolumns;j++) {
     if ((data[j]=(double *) realloc((void *) data[j],sizeof(double)*i))==NULL) {
-      printf("Unable to reallocate data[%d] in __FILE__:__LINENO__\n",j);
+      printf("Unable to reallocate data[%d] in %s:%d\n",j,__FILE__,__LINE__);
       return 0;
     }
   }
@@ -102,7 +102,7 @@ loadfile_fs(char *filename, unsigned int ncolumns, unsigned int columns[], doubl
   unsigned int retval;
 
   if ((in=fopen(filename,"r"))==NULL) {
-    printf("Unable to open %s  __FILE__:__LINENO__\n",filename);
+    printf("Unable to open %s  %s:%d\n",filename,__FILE__,__LINE__);
     return 0;
   }
 

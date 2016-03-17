@@ -284,7 +284,7 @@ quadoutput(int ih, int jh, int kh, int lh,
 
     /* add it to the tree */
     if (addquad(param,data)) {
-      printf("Unable to insert quad into the tree at  __FILE__:__LINENO__\n");
+      printf("Unable to insert quad into the tree at %s:%d\n",__FILE__,__LINE__);
       return;
     }
 
@@ -326,7 +326,7 @@ quadoutput(int ih, int jh, int kh, int lh,
 
     /* add it to the tree */
     if (addquad(param,data)) {
-      printf("Unable to insert quad into the tree at  __FILE__:__LINENO__\n");
+      printf("Unable to insert quad into the tree at  %s:%d\n",__FILE__,__LINE__);
       return;
     }
 
@@ -538,13 +538,13 @@ main(int argc, char *argv[])
 	ratioarray[1]=la[2]/la[0];
 	/* allocate an array to hold the points */
 	if ( (data=(int *) malloc(sizeof(int)*4))==NULL) {
-	  printf("Unable to allocate data at __FILE__:__LINENO__\n");
+	  printf("Unable to allocate data at %s:%d\n",__FILE__,__LINE__);
 	  return -1;
 	}
 	data[0]=i; data[1]=j; data[2]=k; data[3]=l;
 	/* add it to the tree */
 	if (kd_insert(kd, ratioarray, (void *) data)) {
-	  printf("Unable to insert ratio into the tree at  __FILE__:__LINENO__\n");
+	  printf("Unable to insert ratio into the tree at %s:%d\n",__FILE__,__LINE__);
 	  return -1;
 
 	}

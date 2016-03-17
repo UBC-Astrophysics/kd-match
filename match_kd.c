@@ -204,7 +204,7 @@ The options can appear anywhere in any order:\n\n\
   /* actually read in catalogue 2 first */
   if (strcmp(filename2,"-")) {
     if ((in=fopen(filename2,"r"))==NULL) {
-      printf("Unable to open %s  __FILE__:__LINENO__\n",filename2);
+      printf("Unable to open %s %s:%d\n",filename2, __FILE__,__LINE__);
       return 0;
     }
   } else {
@@ -246,7 +246,7 @@ The options can appear anywhere in any order:\n\n\
 	pos[2]=z;
       }
       if (kd_insertf(kd, pos, (void *) optline)) {
-	printf("Unable to insert point into the tree at  __FILE__:__LINENO__\n");
+	printf("Unable to insert point into the tree at %s:%d\n",__FILE__,__LINE__);
 	return -1;
       }
     }
@@ -257,7 +257,7 @@ The options can appear anywhere in any order:\n\n\
   /* now read in catalogue 1 */
   if (strcmp(filename1,"-")) {
     if ((in=fopen(filename1,"r"))==NULL) {
-      printf("Unable to open %s  __FILE__:__LINENO__\n",filename1);
+      printf("Unable to open %s  %s:%d\n",filename1,__FILE__,__LINE__);
       return 0;
     }
   } else {

@@ -260,7 +260,7 @@ triangleoutput(int ih, int jh, int kh, int iah, int jah, int kah) {
 
     /* add it to the tree */
     if (addtriangle(param,data)) {
-      printf("Unable to insert triangle into the tree at  __FILE__:__LINENO__\n");
+      printf("Unable to insert triangle into the tree at  %s:%d\n",__FILE__,__LINE__);
       return;
     }
 
@@ -301,7 +301,7 @@ triangleoutput(int ih, int jh, int kh, int iah, int jah, int kah) {
 
     /* add it to the tree */
     if (addtriangle(param,data)) {
-      printf("Unable to insert triangle into the tree at  __FILE__:__LINENO__\n");
+      printf("Unable to insert triangle into the tree at  %s:%d\n",__FILE__,__LINE__);
       return;
     }
 
@@ -514,7 +514,7 @@ main(int argc, char *argv[])
 	data[0]=i; data[1]=j; data[2]=k;
 	/* add it to the tree */
 	if (kd_insert(kd, ratioarray, (void *) data)) {
-	  printf("Unable to insert point into the tree at  __FILE__:__LINENO__\n");
+	  printf("Unable to insert point into the tree at %s:%d\n",__FILE__,__LINE__);
 	  return -1;
 	}
       }
